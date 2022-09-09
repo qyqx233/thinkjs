@@ -1,11 +1,15 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { setData, getData } from '../ctx/data'
+import {PROXY_URL} from './config'
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<string>
 ) {
   // res.status(200).json({ name: 'John Doe' })
-  res.status(200).setHeader("Content-Type", "text/html; charset=UTF-8").send(getData('clash'))
+  const obj = JSON.parse(req.body)
+  setData('clash', obj.clash.replace("http://192.168.60.132:8086/api2/clash/bestproxies", PROXY_URL))
+  setData('proxy', obj.proxy)
+  res.status(200).send('ok')
 }

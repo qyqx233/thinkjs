@@ -7,5 +7,5 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   // res.status(200).json({ name: 'John Doe' })
-  res.status(200).setHeader("Content-Type", "text/html; charset=UTF-8").send(getData('clash'))
+  res.status(200).setHeader("Content-Type", "text/html; charset=UTF-8").send(getData('proxy'))
 }
