@@ -1,7 +1,6 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { setData, getData } from '../ctx/data'
-import {PROXY_URL} from './config'
+import {PROXY_URL, setData} from '../../util/config'
 
 export default async function handler(
   req: NextApiRequest,
